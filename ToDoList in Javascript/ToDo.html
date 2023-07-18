@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="Stylesheet" href="ToDo.css">
+    <script src="ToDo.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="container">
+        <h1>ToDoList</h1>
+        <input type="text" id="input" name="input" placeholder="Enter details">
+        <button type="submit" id="button">Add</button>
+        <div class="result" id="result">
+
+        </div>
+    </div>
+</div>
+<script>
+     let input=document.getElementById("input");
+ let button=document.getElementById("button");
+ let result=document.getElementById("result");
+
+ 
+let todos=[];
+
+ button.addEventListener('click',()=>{
+    todos.push(input.value);
+    addtodo(input.value);
+    input.value='';
+    
+
+
+
+ });
+ function addtodo(todo){
+    let para=document.createElement('p');
+    para.innerHTML=todo;
+    result.appendChild(para);
+    para.addEventListener('click',()=>{
+        para.style.textDecoration="line-through";
+       
+        remove(todo)
+    })
+
+
+        para.addEventListener('dblclick',()=>{ 
+
+        
+        result.removeChild(para);
+        remove(todo);
+
+
+
+       
+    })}
+
+
+ 
+ /*function remove(todo){
+     let index=todos.indexOf(todo);
+     if(index>-1){
+        todos.splice(index,1);
+     }
+ }*/
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
